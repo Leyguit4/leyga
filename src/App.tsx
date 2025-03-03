@@ -117,10 +117,13 @@ function App() {
           <div className="flex items-center space-x-4">
             <button 
               onClick={toggleLanguage}
-              className="flex items-center space-x-1 px-3 py-1 rounded-full bg-gradient-to-r from-purple-500 to-cyan-500 text-white hover:from-purple-600 hover:to-cyan-600 transition-all duration-300 transform hover:scale-105"
+              className="flex items-center space-x-2 px-3 py-1 rounded-full bg-gradient-to-r from-purple-500 to-cyan-500 text-white hover:from-purple-600 hover:to-cyan-600 transition-all duration-300 transform hover:scale-105"
             >
               <Globe size={16} />
-              <span>{language === 'pt' ? 'EN' : 'PT'}</span>
+              <span className="font-medium">
+                {language === 'pt' ? 'PT-BR' : 'EN-US'}
+              </span>
+              <ChevronDown size={12} />
             </button>
             
             <button 
@@ -178,41 +181,14 @@ function App() {
           </h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <VideoCard 
-              title="🎫 Sistema de Tickets"
-              videoId="https://drive.google.com/file/d/1XIsHPVP8EL16Lvy_tswZWC8vZviOMQcd/view?usp=sharing"
-              description="Sistema completo de tickets para suporte ao usuário, incluindo categorias personalizáveis, níveis de prioridade, sistema de filas, histórico detalhado de atendimentos e métricas de performance da equipe de suporte."
-            />
-            <VideoCard 
-              title="📝 Sistema de Forms"
-              videoId="https://drive.google.com/file/d/1A5CkeqkM-oTbRjdAOCT0vdAjTIhZQi44/view?usp=sharing"
-              description="Formulários dinâmicos e interativos com validação em tempo real, campos personalizáveis, suporte a uploads de arquivos, exportação de dados em diversos formatos e integração com banco de dados."
-            />
-            <VideoCard 
-              title="🔓 Sistema de Unban"
-              videoId="https://drive.google.com/file/d/1A5CkeqkM-oTbRjdAOCT0vdAjTIhZQi44/view?usp=sharing"
-              description="Gerenciamento avançado de banimentos com sistema de apelação, análise automática de casos, histórico de infrações, tempo de banimento configurável e sistema de advertências."
-            />
-            <VideoCard 
-              title="🏆 Sistema de Ranking"
-              videoId="https://drive.google.com/file/d/1qRRIKZJqi708UbOtjIQIPAj2JXBanxeu/view?usp=sharing"
-              description="Sistema completo de classificação com pontuações por atividade, XP por mensagens, multiplicadores de eventos, recompensas automáticas, cards personalizados e ranking semanal/mensal/global."
-            />
-            <VideoCard 
-              title="👥 Sistema de Metadinhas"
-              videoId="https://drive.google.com/file/d/1gc5CDP8SFH8Aw2ixM51I0gaMfTpqTd1m/view?usp=sharing"
-              description="Recurso social inovador para criar conexões entre usuários, perfis compartilhados customizáveis, badges especiais para amizades, sistema de compatibilidade e álbum de memórias compartilhadas."
-            />
-            <VideoCard 
-              title="🕵️ Jogo O Espião"
-              videoId="https://drive.google.com/file/d/1_UdS6xEjnFPtGwL87AMfVGVQNR--MLVq/view?usp=sharing"
-              description="Jogo interativo onde um jogador é o espião infiltrado. Inclui sistema de votação, chat dedicado, temporizador, dicas automáticas, diversos temas e locais, e placar de pontuação."
-            />
-            <VideoCard 
-              title="🪑 Jogo Dança das Cadeiras"
-              videoId="https://drive.google.com/file/d/10Z4-mCLEPQmC9XBPe4kD9Y9kx_t8w74r/view?usp=sharing"
-              description="Versão digital do clássico jogo com sistema automático de eliminação, integração com músicas do YouTube, controle de rounds, sistema de apostas e ranking dos vencedores."
-            />
+            {t.portfolio.projects.map((project, index) => (
+              <VideoCard 
+                key={index}
+                title={project.title}
+                description={project.description}
+                videoId={`https://drive.google.com/file/d/${index + 1}/view`} // Exemplo - ajuste conforme necessário
+              />
+            ))}
           </div>
         </div>
       </section>

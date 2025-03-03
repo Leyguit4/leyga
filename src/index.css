@@ -1,9 +1,9 @@
-/* Fonte personalizada para títulos */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Tailwind deve vir depois dos @import */
 
 :root {
   --color-purple: #8b5cf6;

@@ -11,10 +11,10 @@ interface Translation {
   };
   hero: {
     greeting: string;
+    typingText: string;
     description: string;
     cta: string;
   };
-  typingText: string;
   portfolio: {
     title: string;
     projects: Project[];
@@ -26,6 +26,7 @@ interface Translation {
   footer: {
     rights: string;
   };
+  typingText: string;
 }
 
 interface Translations {
@@ -40,13 +41,13 @@ const translations: Translations = {
       contact: "Contato"
     },
     hero: {
-      greeting: "Olá! Sou",
-      description: "Sou programador de bots para Discord e vou te mostrar um pouco do meu trabalho a seguir.",
-      cta: "Ver Portfólio"
+      greeting: "Olá, eu sou",
+      typingText: "Desenvolvedor Full Stack & Criador de Bots",
+      description: "Especializado em desenvolvimento de bots e sistemas personalizados para Discord, com foco em interação e engajamento de comunidades.",
+      cta: "Ver Projetos"
     },
-    typingText: "Desenvolvedor de Bots para Discord",
     portfolio: {
-      title: "Portfólio",
+      title: "Meus Projetos",
       projects: [
         {
           title: "🎫 Sistema de Tickets",
@@ -80,11 +81,12 @@ const translations: Translations = {
     },
     contact: {
       title: "Entre em Contato",
-      description: "Interessado em um bot personalizado para o seu servidor? Entre em contato comigo pelo Discord ou email!"
+      description: "Tem algum projeto em mente? Vamos conversar!"
     },
     footer: {
       rights: "Todos os direitos reservados"
-    }
+    },
+    typingText: "Desenvolvedor Full Stack & Criador de Bots"
   },
   en: {
     nav: {
@@ -93,13 +95,13 @@ const translations: Translations = {
       contact: "Contact"
     },
     hero: {
-      greeting: "Hello! I'm",
-      description: "I'm a Discord bot developer and I'll show you some of my work below.",
-      cta: "View Portfolio"
+      greeting: "Hi, I'm",
+      typingText: "Full Stack Developer & Bot Creator",
+      description: "Specialized in developing custom bots and systems for Discord, focusing on community interaction and engagement.",
+      cta: "View Projects"
     },
-    typingText: "Discord Bot Developer",
     portfolio: {
-      title: "Portfolio",
+      title: "My Projects",
       projects: [
         {
           title: "🎫 Ticket System",
@@ -133,12 +135,14 @@ const translations: Translations = {
     },
     contact: {
       title: "Get in Touch",
-      description: "Interested in a custom bot for your server? Contact me via Discord or email!"
+      description: "Have a project in mind? Let's talk!"
     },
     footer: {
       rights: "All rights reserved"
-    }
+    },
+    typingText: "Full Stack Developer & Bot Creator"
   }
 };
 
+export type { Translation };
 export default translations;
