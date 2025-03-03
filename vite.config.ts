@@ -16,15 +16,14 @@ export default defineConfig({
     minify: 'terser',
     sourcemap: false,
     rollupOptions: {
+      input: {
+        app: './_app.html'
+      },
       output: {
-        entryFileNames: '[name].[hash].js',
-        chunkFileNames: '[name].[hash].js',
-        assetFileNames: '[name].[hash][extname]'
+        entryFileNames: 'assets/[name].[hash].js',
+        chunkFileNames: 'assets/[name].[hash].js',
+        assetFileNames: 'assets/[name].[hash][extname]'
       }
     }
-  },
-  server: {
-    port: 5173,
-    strictPort: true
   }
 })
