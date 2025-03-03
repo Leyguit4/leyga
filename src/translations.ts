@@ -18,6 +18,7 @@ interface Translation {
   portfolio: {
     title: string;
     projects: Project[];
+    promotionalText?: string;
   };
   contact: {
     title: string;
@@ -129,7 +130,8 @@ const translations: Translations = {
           title: '🪑 Musical Chairs',
           description: 'Digital version of the classic game, with automatic elimination system and voice channel integration.'
         }
-      ]
+      ],
+      promotionalText: 'Take advantage of our exclusive features, such as **Temproles**, **Triggers**, and much more. Don\'t miss this opportunity! We have amazing deals and affordable prices. **Upgrade your community now!** Contact us and get your quote.'
     },
     contact: {
       title: 'Get in Touch',

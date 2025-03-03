@@ -5,7 +5,8 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
-        <link rel="icon" type="image/x-icon" href="/leyga.ico" />
+        <link rel="icon" type="image/png" href="/apple-touch-icon.png" />
+        <link rel="shortcut icon" href="/apple-touch-icon.png" />
       </Head>
       <Component {...pageProps} />
     </>

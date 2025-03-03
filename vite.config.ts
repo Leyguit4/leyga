@@ -23,7 +23,11 @@ export default defineConfig({
         entryFileNames: 'assets/[name].[hash].js',
         chunkFileNames: 'assets/[name].[hash].js',
         assetFileNames: 'assets/[name].[hash][extname]'
-      }
+      },
+      external: ['lucide-react']
     }
+  },
+  optimizeDeps: {
+    include: ['lucide-react']
   }
 })

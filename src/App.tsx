@@ -87,13 +87,15 @@ function App() {
   };
 
   useEffect(() => {
-    // Adiciona o favicon dinamicamente
+    // Atualiza o favicon dinamicamente
     const link = document.querySelector("link[rel~='icon']") as HTMLLinkElement;
-    if (!link) {
+    if (link) {
+      link.href = "/C:/Users/theuz/Music/Faviicon-leyga/leyga.ico";
+    } else {
       const newLink = document.createElement('link');
-      newLink.rel = 'icon';
+      newLink.rel = 'shortcut icon';
       newLink.type = 'image/x-icon';
-      newLink.href = '/favicon.ico';
+      newLink.href = "/C:/Users/theuz/Music/Faviicon-leyga/leyga.ico";
       document.head.appendChild(newLink);
     }
   }, []);
@@ -109,7 +111,7 @@ function App() {
           : 'bg-white/80 text-gray-900'
       } backdrop-blur-sm shadow-md transition-colors duration-300`}>
         <div className="container mx-auto px-4 py-4">
-          <div className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-600 via-red-500 to-yellow-400">
+          <div className={`text-2xl font-bold ${darkMode ? 'text-red-500' : 'bg-clip-text text-transparent bg-gradient-to-r from-purple-600 via-red-500 to-yellow-400'}`}>
             Contrate-já!
           </div>
           
@@ -289,33 +291,29 @@ function App() {
 
           {/* Texto promocional animado */}
           <div className="mt-16 text-center max-w-4xl mx-auto px-4">
-            <p className={`text-lg md:text-xl leading-relaxed animate-float ${
-              darkMode 
-                ? 'text-gray-300'
-                : 'text-gray-700'
+            <p className={`text-lg md:text-xl leading-relaxed animate-float relative group ${
+              darkMode ? 'text-gray-300' : 'text-gray-900'
             }`}>
-              Aproveite nossas diversas funcionalidades exclusivas, como sistemas de{' '}
-              <span className={`font-bold animate-pulse-glow inline-block ${
-                darkMode
-                  ? 'bg-gradient-to-r from-red-500 via-purple-500 to-pink-500'
-                  : 'bg-gradient-to-r from-purple-600 via-yellow-400 to-purple-400'
-              } bg-clip-text text-transparent`}>
-                Temproles, Triggers
-              </span>
-              {' '}e muito mais. Não perca essa oportunidade! Estamos com promoções imperdíveis e preços acessíveis.{' '}
-              <span className={`font-bold block mt-4 text-2xl animate-bounce-subtle ${
-                darkMode
-                  ? 'bg-gradient-to-br from-white via-red-500 to-purple-600'
-                  : 'bg-gradient-to-br from-yellow-400 via-purple-500 to-cyan-400'
-              } bg-clip-text text-transparent relative group`}>
-                Dê um upgrade na sua comunidade agora mesmo!
-                <div className={`absolute -inset-2 blur-xl opacity-50 animate-pulse-slow -z-10 ${
-                  darkMode
-                    ? 'bg-gradient-to-r from-red-600 via-purple-600 to-pink-600'
-                    : 'bg-gradient-to-r from-purple-400 via-yellow-400 to-cyan-400'
-                }`} />
-              </span>
-              {' '}Entre em contato e faça seu orçamento.
+              <span className="absolute -inset-2 blur-xl bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 opacity-20 group-hover:opacity-30 transition-opacity duration-500"></span>
+              {language === 'pt' ? (
+                <span className={`relative ${darkMode ? 'text-gray-300' : 'text-gray-900'}`}>
+                  Aproveite nossas diversas funcionalidades exclusivas, como{' '}
+                  <strong className="text-red-500 animate-pulse">Temproles</strong>,{' '}
+                  <strong className="text-blue-500 animate-bounce">Triggers</strong>{' '}
+                  e muito mais. Não perca essa oportunidade! Estamos com promoções imperdíveis e preços acessíveis.{' '}
+                  <strong className="text-green-500 animate-pulse">Dê um upgrade na sua comunidade agora mesmo!</strong>{' '}
+                  Entre em contato e faça seu orçamento.
+                </span>
+              ) : (
+                <span className={`relative ${darkMode ? 'text-gray-300' : 'text-gray-900'}`}>
+                  Take advantage of our exclusive features, such as{' '}
+                  <strong className="text-red-500 animate-pulse">Temproles</strong>,{' '}
+                  <strong className="text-blue-500 animate-bounce">Triggers</strong>,{' '}
+                  and much more. Don't miss this opportunity! We have amazing deals and affordable prices.{' '}
+                  <strong className="text-green-500 animate-pulse">Upgrade your community now!</strong>{' '}
+                  Contact us and get your quote.
+                </span>
+              )}
             </p>
           </div>
         </div>
@@ -357,8 +355,70 @@ function App() {
             ? 'bg-gray-800 text-gray-300' 
             : 'bg-white shadow-2xl border-2 border-purple-200'
         }`}>
-          <p className={`text-center mb-8 ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
-            {t.contact.description}
+          <p className="text-center mb-8 relative group overflow-hidden">
+            {language === 'pt' ? (
+              <span className="inline-block relative">
+                {/* Efeito de fundo animado */}
+                <span className={`absolute inset-0 ${
+                  darkMode
+                    ? 'bg-gradient-to-r from-red-500/5 via-purple-500/5 to-blue-500/5'
+                    : 'bg-gradient-to-r from-red-100 via-purple-100 to-blue-100'
+                } transform group-hover:scale-110 transition-transform duration-700 rounded-lg`}></span>
+                
+                {/* Texto com animação */}
+                <span className={`relative inline-block px-4 py-2 group-hover:scale-105 transition-all duration-500 ${
+                  darkMode ? 'text-gray-300' : 'text-gray-800'
+                }`}>
+                  Vamos transformar sua{' '}
+                  <span className={`font-bold relative inline-block transform hover:scale-110 transition-transform ${
+                    darkMode 
+                      ? 'text-red-400 hover:text-red-300' 
+                      : 'text-purple-600 hover:text-purple-500'
+                  } after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-current after:transform after:scale-x-0 after:origin-left hover:after:scale-x-100 after:transition-transform after:duration-300`}>
+                    ideia em realidade
+                  </span>!{' '}
+                  Entre em contato para{' '}
+                  <span className={`font-bold relative inline-block transform hover:scale-110 transition-transform ${
+                    darkMode 
+                      ? 'text-blue-400 hover:text-blue-300' 
+                      : 'text-indigo-600 hover:text-indigo-500'
+                  } after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-current after:transform after:scale-x-0 after:origin-left hover:after:scale-x-100 after:transition-transform after:duration-300`}>
+                    discutirmos seu projeto
+                  </span>.
+                </span>
+              </span>
+            ) : (
+              <span className="inline-block relative">
+                {/* Efeito de fundo animado */}
+                <span className={`absolute inset-0 ${
+                  darkMode
+                    ? 'bg-gradient-to-r from-blue-500/5 via-purple-500/5 to-green-500/5'
+                    : 'bg-gradient-to-r from-pink-100 via-purple-100 to-indigo-100'
+                } transform group-hover:scale-110 transition-transform duration-700 rounded-lg`}></span>
+                
+                {/* Texto com animação */}
+                <span className={`relative inline-block px-4 py-2 group-hover:scale-105 transition-all duration-500 ${
+                  darkMode ? 'text-gray-300' : 'text-gray-800'
+                }`}>
+                  Let's turn your{' '}
+                  <span className={`font-bold relative inline-block transform hover:scale-110 transition-transform ${
+                    darkMode 
+                      ? 'text-blue-400 hover:text-blue-300' 
+                      : 'text-pink-600 hover:text-pink-500'
+                  } after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-current after:transform after:scale-x-0 after:origin-left hover:after:scale-x-100 after:transition-transform after:duration-300`}>
+                    idea into reality
+                  </span>!{' '}
+                  Get in touch to{' '}
+                  <span className={`font-bold relative inline-block transform hover:scale-110 transition-transform ${
+                    darkMode 
+                      ? 'text-green-400 hover:text-green-300' 
+                      : 'text-indigo-600 hover:text-indigo-500'
+                  } after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-current after:transform after:scale-x-0 after:origin-left hover:after:scale-x-100 after:transition-transform after:duration-300`}>
+                    discuss your project
+                  </span>.
+                </span>
+              </span>
+            )}
           </p>
           
           {/* Botões de contato */}
@@ -401,7 +461,7 @@ function App() {
           </p>
         </div>
       </footer>
-      <CookieConsent />
+      <CookieConsent language={language} darkMode={darkMode} />
     </div>
   );
 }

@@ -1,62 +1,102 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
-export function CookieConsent() {
-  const [isVisible, setIsVisible] = useState(false);
+export function CookieConsent({ language, darkMode }) {
+  const [isVisible, setIsVisible] = useState(true);
+  const [isSpinning, setIsSpinning] = useState(false);
 
-  useEffect(() => {
-    const consent = localStorage.getItem('cookieConsent');
-    if (!consent) {
-      setIsVisible(true);
+  // Prevenir renderização se já foi aceito
+  if (!isVisible || localStorage.getItem('cookieConsent')) {
+    return null;
+  }
+
+  // Textos traduzidos
+  const texts = {
+    pt: {
+      message: 'Utilizamos cookies para melhorar sua experiência. Ao continuar navegando, você concorda com nossa política.',
+      accept: 'Aceitar',
+      deny: 'Recusar'
+    },
+    en: {
+      message: 'We use cookies to improve your experience. By continuing to browse, you agree to our policies.',
+      accept: 'Accept',
+      deny: 'Deny'
     }
-  }, []);
-
-  const handleAccept = () => {
-    localStorage.setItem('cookieConsent', 'true');
-    setIsVisible(false);
   };
 
-  if (!isVisible) return null;
+  // Seleciona o texto baseado no idioma
+  const currentText = texts[language] || texts.pt;
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 bg-gray-900/95 backdrop-blur-sm z-50 transform animate-slide-up">
-      <div className="max-w-7xl mx-auto p-4 flex flex-col md:flex-row items-center justify-between gap-4">
-        <div className="text-white text-sm flex-1">
-          <p className="mb-2">
-            🍪 Este site usa cookies para melhorar sua experiência.
-            <span className="text-purple-400"> Seus dados estão seguros e criptografados.</span>
-          </p>
-          <div className="flex gap-2 text-xs text-gray-400">
-            <span className="flex items-center">
-              <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-              </svg>
-              SSL Criptografado
-            </span>
-            <span className="flex items-center">
-              <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-              </svg>
-              GDPR Compliant
-            </span>
-          </div>
-        </div>
-        <div className="flex gap-4">
-          <button
-            onClick={handleAccept}
-            className="px-6 py-2 rounded-lg bg-gradient-to-r from-purple-600 to-pink-600 text-white font-medium 
-            hover:from-purple-700 hover:to-pink-700 transform hover:scale-105 transition-all duration-300
-            animate-pulse-subtle shadow-lg shadow-purple-500/25"
+    <div className={`
+      fixed bottom-4 left-4 right-4 md:max-w-md md:left-4 p-6
+      rounded-lg shadow-lg z-50 transform hover:scale-[1.02] transition-all duration-300
+      ${darkMode 
+        ? 'bg-gray-800/90 border border-gray-700 backdrop-blur-sm' 
+        : 'bg-white/90 border border-purple-200 backdrop-blur-sm'} 
+    `}>
+      <div className="flex items-center gap-4">
+        <div className={`
+          p-3 rounded-full cursor-pointer group
+          ${darkMode 
+            ? 'bg-gradient-to-br from-red-500/20 via-purple-500/20 to-orange-500/20' 
+            : 'bg-gradient-to-br from-purple-300 via-pink-300 to-purple-300'} 
+          hover:bg-gradient-to-tl transition-all duration-500
+        `}>
+          <span 
+            className={`
+              text-2xl inline-block
+              animate-bounce hover:animate-none
+              transform hover:scale-110 hover:rotate-12
+              transition-all duration-300
+              ${isSpinning ? 'animate-spin' : ''}
+            `}
+            onClick={() => {
+              setIsSpinning(true);
+              setTimeout(() => setIsSpinning(false), 1000);
+            }}
+            onMouseEnter={() => setIsSpinning(true)}
+            onMouseLeave={() => setIsSpinning(false)}
           >
-            Aceitar
-          </button>
-          <button
-            onClick={() => setIsVisible(false)}
-            className="px-6 py-2 rounded-lg border border-gray-600 text-gray-300 hover:bg-gray-800 
-            transition-colors duration-300"
-          >
-            Recusar
-          </button>
+            🍪
+          </span>
         </div>
+        <p className={`text-sm ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+          {currentText.message}
+        </p>
+      </div>
+
+      <div className="mt-4 flex justify-end gap-4">
+        <button
+          onClick={() => {
+            setIsVisible(false);
+            localStorage.setItem('cookieConsent', 'true');
+          }}
+          className={`
+            px-6 py-2 rounded-md text-sm font-medium
+            transform hover:scale-105 active:scale-95
+            transition-all duration-300
+            ${darkMode 
+              ? 'bg-gradient-to-r from-red-500 to-gray-900 hover:from-gray-900 hover:to-red-500 text-white shadow-lg shadow-red-500/20' 
+              : 'bg-gradient-to-r from-purple-600 via-purple-500 to-purple-400 hover:from-purple-400 hover:via-purple-500 hover:to-purple-600 text-white shadow-lg shadow-purple-500/20'
+            }
+          `}
+        >
+          {currentText.accept}
+        </button>
+        <button
+          onClick={() => setIsVisible(false)}
+          className={`
+            px-6 py-2 rounded-md text-sm font-medium
+            transform hover:scale-105 active:scale-95
+            transition-all duration-300
+            ${darkMode
+              ? 'bg-gray-700 hover:bg-gray-600 text-gray-300'
+              : 'bg-gray-100 hover:bg-gray-200 text-gray-600'
+            }
+          `}
+        >
+          {currentText.deny}
+        </button>
       </div>
     </div>
   );
