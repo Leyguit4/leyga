@@ -7,11 +7,16 @@
 
 :root {
   --color-purple: #8b5cf6;
-  --color-red: #ff1313;
-  --color-cyan: #57ffff;
-  --color-green: #36fd40;
-  background-color: theme('colors.zinc.950');
-  color: theme('colors.zinc.50');
+  --color-blue-dark: #1e3a8a;
+  --color-red: #dc2626;
+  --color-black: #111827;
+  --color-white: #ffffff;
+  --color-yellow: #fbbf24;
+  --color-cyan: #06b6d4;
+  --color-green-light: #4ade80;
+  --color-purple-light: #a78bfa;
+  background-color: var(--color-black);
+  color: var(--color-white);
 }
 
 body {
@@ -47,6 +52,474 @@ body {
   animation: tilt 10s infinite linear;
 }
 
+/* Nova animação de rotação */
+@keyframes float {
+   0%, 100% { 
+    transform: translateY(0px) scale(1);
+    filter: brightness(1);
+  }
+  50% { 
+    transform: translateY(-10px) scale(1.02);
+    filter: brightness(1.1);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Animação de gradiente atualizada */
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradientFlow 15s ease infinite;
+}
+
+/* Adicione a animação do contorno */
+@keyframes borderFlow {
+  0%, 100% { 
+    transform: rotate(0deg);
+    opacity: 0.5;
+  }
+  25% { 
+    transform: rotate(90deg);
+    opacity: 0.75;
+  }
+  50% { 
+    transform: rotate(180deg);
+    opacity: 1;
+  }
+  75% { 
+    transform: rotate(270deg);
+    opacity: 0.75;
+  }
+}
+
+.animate-border-flow {
+  animation: borderFlow 4s linear infinite;
+}
+
+/* Adicione a animação RGB */
+@keyframes rgbFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-rgb {
+  background: linear-gradient(
+    to right,
+    #ff0000,
+    #00ff00,
+    #0000ff,
+    #ff0000
+  );
+  background-size: 400% 400%;
+  animation: rgbFlow 10s ease infinite;
+}
+
+/* Nova animação de mudança de cores mais rápida */
+@keyframes colorChange {
+  0% { background-position: 0% 50%; }
+  33% { background-position: 100% 50%; }
+  66% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+/* Animação de rotação lenta dos cards */
+@keyframes cardFloat {
+  0%, 100% { 
+    transform: rotate(-1deg) translateY(0px);
+  }
+  25% { 
+    transform: rotate(0deg) translateY(-5px);
+  }
+  75% { 
+    transform: rotate(1deg) translateY(5px);
+  }
+}
+
+.animate-card-float {
+  animation: cardFloat 15s ease-in-out infinite;
+}
+
+/* Animação retangular lenta dos cards */
+@keyframes card-float-rect {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(5px, 5px);
+  }
+  50% {
+    transform: translate(0, 10px);
+  }
+  75% {
+    transform: translate(-5px, 5px);
+  }
+}
+
+.animate-card-float-rect {
+  animation: card-float-rect 20s ease-in-out infinite;
+}
+
+/* Animação RGB mais rápida */
+@keyframes rgbShift {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+/* Animação da sombra dos cards */
+@keyframes glow {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.75;
+  }
+}
+
+.animate-glow {
+  animation: glow 5s ease-in-out infinite;
+}
+
+/* Animação da sombra mais lenta */
+@keyframes glow-slow {
+  0%, 100% {
+    transform: scale(1);
+    filter: blur(16px);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.1);
+    filter: blur(20px);
+    opacity: 0.7;
+  }
+}
+
+.animate-glow-slow {
+  animation: glow-slow 8s ease-in-out infinite;
+}
+
+/* Animação RGB rápida para o fundo do vídeo */
+@keyframes rgbFast {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-rgb-fast {
+  animation: rgbFast 3s linear infinite;
+}
+
+/* Animação de mudança de cores do card */
+@keyframes cardColorShift {
+  0% {
+    background-position: 0% 50%;
+    filter: hue-rotate(0deg);
+  }
+  33% {
+    background-position: 50% 50%;
+    filter: hue-rotate(60deg);
+  }
+  66% {
+    background-position: 100% 50%;
+    filter: hue-rotate(-60deg);
+  }
+  100% {
+    background-position: 0% 50%;
+    filter: hue-rotate(0deg);
+  }
+}
+
+/* Animações para a troca de cores dos cards */
+@keyframes darkCardShift {
+  0% { background: #dc2626; }
+  33% { background: #000000; }
+  66% { background: #8b5cf6; }
+  100% { background: #dc2626; }
+}
+
+@keyframes lightCardShift {
+  0% { background: #fbbf24; }
+  20% { background: #8b5cf6; }
+  40% { background: #ffffff; }
+  60% { background: #06b6d4; }
+  80% { background: #4ade80; }
+  100% { background: #fbbf24; }
+}
+
+.animate-dark-card {
+  animation: darkCardShift 8s linear infinite;
+  transition: background 0.5s ease;
+}
+
+.animate-light-card {
+  animation: lightCardShift 10s linear infinite;
+  transition: background 0.5s ease;
+}
+
+/* Animação do pulso neon */
+@keyframes neonPulse {
+  0%, 100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.1);
+  }
+}
+
+/* Animação do anel do botão play */
+@keyframes pulseRing {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.3;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(0.8);
+    opacity: 0.3;
+  }
+}
+
+.animate-pulse-ring {
+  animation: pulseRing 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.animate-neon-pulse {
+  animation: neonPulse 2s ease infinite;
+}
+
+/* Animação RGB para sombra neon */
+@keyframes rgbShift {
+  0% {
+    background-position: 0% 50%;
+    filter: hue-rotate(0deg) brightness(1);
+  }
+  50% {
+    background-position: 100% 50%;
+    filter: hue-rotate(180deg) brightness(1.2);
+  }
+  100% {
+    background-position: 0% 50%;
+    filter: hue-rotate(360deg) brightness(1);
+  }
+}
+
+/* Animação de ping mais lenta para o anel */
+@keyframes ping-slow {
+  0% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.3;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+}
+
+/* Animação sutil para o ícone play */
+@keyframes pulse-subtle {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.95);
+  }
+}
+
+.animate-ping-slow {
+  animation: ping-slow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.animate-pulse-subtle {
+  animation: pulse-subtle 2s ease-in-out infinite;
+}
+
+/* Animação de bounce suave para o play */
+@keyframes bounce-subtle {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-5px) scale(1.05);
+  }
+}
+
+.animate-bounce-subtle {
+  animation: bounce-subtle 2s ease-in-out infinite;
+}
+
+/* Animação mais lenta de inclinação para o brilho */
+@keyframes tilt-slow {
+  0%, 100% { 
+    transform: rotate(-2deg) scale(1);
+    filter: hue-rotate(0deg);
+  }
+  50% { 
+    transform: rotate(2deg) scale(1.05);
+    filter: hue-rotate(60deg);
+  }
+}
+
+/* Animação de deslocamento do gradiente */
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+    transform: scale(0.95);
+  }
+  50% {
+    background-position: 100% 50%;
+    transform: scale(1.05);
+  }
+  100% {
+    background-position: 0% 50%;
+    transform: scale(0.95);
+  }
+}
+
+.animate-tilt-slow {
+  animation: tilt-slow 6s ease-in-out infinite;
+}
+
+.animate-gradient-shift {
+  background-size: 200% 200%;
+  animation: gradient-shift 8s ease infinite;
+}
+
+/* Animação do contorno brilhoso */
+@keyframes border-glow {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes border-glow-blur {
+  0%, 100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.1);
+  }
+}
+
+.animate-border-glow {
+  animation: border-glow 4s ease-in-out infinite;
+}
+
+.animate-border-glow-blur {
+  animation: border-glow-blur 4s ease-in-out infinite;
+}
+
+/* Animação de pulso do contorno */
+@keyframes border-pulse {
+  0%, 100% {
+    opacity: 0.5;
+    filter: hue-rotate(0deg);
+  }
+  50% {
+    opacity: 0.8;
+    filter: hue-rotate(180deg);
+  }
+}
+
+.animate-border-pulse {
+  animation: border-pulse 4s ease-in-out infinite;
+}
+
+/* Novas animações para os cards */
+@keyframes gradient-move {
+  0% {
+    background-position: 0% 50%;
+    transform: rotate(-1deg);
+  }
+  50% {
+    background-position: 100% 50%;
+    transform: rotate(1deg);
+  }
+  100% {
+    background-position: 0% 50%;
+    transform: rotate(-1deg);
+  }
+}
+
+@keyframes shine {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+@keyframes text-glow {
+  0%, 100% {
+    filter: brightness(1);
+  }
+  50% {
+    filter: brightness(1.3);
+  }
+}
+
+.animate-gradient-move {
+  background-size: 200% 200%;
+  animation: gradient-move 15s ease infinite;
+}
+
+.animate-shine {
+  background-size: 200% 100%;
+  animation: shine 8s linear infinite;
+}
+
+.animate-text-glow {
+  animation: text-glow 3s ease-in-out infinite;
+}
+
+/* Animação suave de flutuação para os cards */
+@keyframes card-float-slow {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(0, 10px);
+  }
+}
+
+.animate-card-float-slow {
+  animation: card-float-slow 8s ease-in-out infinite;
+}
+
+.bg-size-300 {
+  background-size: 300% 100%;
+}
+
+.bg-size-100 {
+  background-size: 100% 100%;
+}
+
 /* Scrollbar styling */
 ::-webkit-scrollbar {
   width: 8px;
@@ -72,7 +545,19 @@ body {
 
 /* Gradient text utility */
 .gradient-text {
-  @apply bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-red-500;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  background-image: linear-gradient(to right, var(--color-purple-600), var(--color-red-600), var(--color-cyan-500));
+}
+
+/* Atualização dos gradientes */
+.gradient-primary {
+  background-image: linear-gradient(to right, var(--color-purple-600), var(--color-red-500), var(--color-yellow-400));
+}
+
+.gradient-secondary {
+  background-image: linear-gradient(to right, var(--color-yellow-400), var(--color-purple-500), var(--color-purple-300));
 }
 
 /* Smooth transitions */
@@ -91,15 +576,20 @@ body {
   }
 }
 
+/* Adicione estas classes para transições suaves */
+.transition-theme {
+  transition-property: all;
+  transition-duration: 500ms;
+  transition-timing-function: ease-in-out;
+}
+
 /* Estilização da barra de progresso do vídeo */
-iframe {
-  &::-webkit-media-controls-timeline {
-    background-color: #ef4444 !important;
-  }
-  
-  &::-webkit-media-controls-progress-bar {
-    background-color: #ef4444 !important;
-  }
+iframe::-webkit-media-controls-timeline {
+  background-color: #ef4444 !important;
+}
+
+iframe::-webkit-media-controls-progress-bar {
+  background-color: #ef4444 !important;
 }
 
 /* Cor da barra de progresso */
@@ -112,20 +602,20 @@ iframe {
 }
 
 /* Estilização dos controles de vídeo */
-.video-custom-controls {
-  /* Cor da barra de progresso */
-  &::-webkit-media-controls-timeline,
-  &::-webkit-media-controls-progress-bar {
-    background-color: #8b5cf6 !important; /* Cor roxa do Tailwind (purple-600) */
-  }
+.video-custom-controls::-webkit-media-controls-timeline {
+  background-color: #8b5cf6 !important;
+}
 
-  &::-webkit-media-controls-panel {
-    background: rgba(0, 0, 0, 0.7);
-  }
+.video-custom-controls::-webkit-media-controls-progress-bar {
+  background-color: #8b5cf6 !important;
+}
 
-  &::-webkit-media-controls-play-button {
-    filter: hue-rotate(240deg); /* Ajusta a cor para roxo */
-  }
+.video-custom-controls::-webkit-media-controls-panel {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.video-custom-controls::-webkit-media-controls-play-button {
+  filter: hue-rotate(240deg);
 }
 
 /* Firefox */
@@ -136,4 +626,88 @@ iframe {
 /* Edge e IE */
 .video-custom-controls::-ms-fill-lower {
   background-color: #8b5cf6;
+}
+
+/* Atualize os temas claro/escuro */
+.light-theme {
+  background-color: var(--color-blue-dark);
+  color: var(--color-white);
+}
+
+.dark-theme {
+  background-color: var(--color-black);
+  color: var(--color-white);
+}
+
+/* Card styling */
+.group {
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+}
+
+.group:hover {
+  transform: translateY(-5px);
+  transition: transform 0.3s ease;
+}
+
+/* Animação para o Cookie Consent */
+@keyframes slide-up {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-slide-up {
+  animation: slide-up 0.5s ease-out forwards;
+}
+
+/* Animação de rotação lenta */
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 10s linear infinite;
+}
+
+/* Animação de pulse para a sombra do vídeo */
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.1);
+  }
+}
+
+/* Animação de rotação lenta para a segunda camada */
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+.animate-spin-slow {
+  animation: spin-slow 15s linear infinite;
 }

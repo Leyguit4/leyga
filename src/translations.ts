@@ -26,7 +26,6 @@ interface Translation {
   footer: {
     rights: string;
   };
-  typingText: string;
 }
 
 interface Translations {
@@ -42,7 +41,7 @@ const translations: Translations = {
     },
     hero: {
       greeting: 'Olá, eu sou',
-      typingText: 'Desenvolvedor de Bots para Discord',
+      typingText: 'Sou apenas um cara Leygal pronto para trabalhar com você.',
       description: 'Especializado em criar experiências únicas e interativas para comunidades no Discord.',
       cta: 'Ver Projetos'
     },
@@ -95,7 +94,7 @@ const translations: Translations = {
     },
     hero: {
       greeting: "Hi, I'm",
-      typingText: 'Discord Bot Developer',
+      typingText: "I'm just a Leygal guy ready to work with you.",
       description: 'Specialized in creating unique and interactive experiences for Discord communities.',
       cta: 'View Projects'
     },
