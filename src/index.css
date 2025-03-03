@@ -1,3 +1,6 @@
+/* Fonte personalizada para títulos */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -29,9 +32,6 @@ body {
 .animate-pulse-slow {
   animation: pulse-slow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
-
-/* Fonte personalizada para títulos */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
 
 .font-display {
   font-family: 'Poppins', sans-serif;
