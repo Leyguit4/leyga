@@ -1,0 +1,139 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-purple: #8b5cf6;
+  --color-red: #ff1313;
+  --color-cyan: #57ffff;
+  --color-green: #36fd40;
+  background-color: theme('colors.zinc.950');
+  color: theme('colors.zinc.50');
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  scroll-behavior: smooth;
+}
+
+/* Custom animations */
+@keyframes pulse-slow {
+  0%, 100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Fonte personalizada para títulos */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+
+.font-display {
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Animação de tilt para a borda do vídeo */
+@keyframes tilt {
+  0%, 100% { transform: rotate(-1deg); }
+  50% { transform: rotate(1deg); }
+}
+
+.animate-tilt {
+  animation: tilt 10s infinite linear;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, var(--color-purple), var(--color-red));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #7c3aed, #dc2626);
+}
+
+/* Dark mode scrollbar */
+.dark ::-webkit-scrollbar-track {
+  background: #2d3748;
+}
+
+/* Gradient text utility */
+.gradient-text {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-red-500;
+}
+
+/* Smooth transitions */
+.transition-all {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+}
+
+/* Adicione animações suaves */
+@layer utilities {
+  .transition-all {
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+  }
+}
+
+/* Estilização da barra de progresso do vídeo */
+iframe {
+  &::-webkit-media-controls-timeline {
+    background-color: #ef4444 !important;
+  }
+  
+  &::-webkit-media-controls-progress-bar {
+    background-color: #ef4444 !important;
+  }
+}
+
+/* Cor da barra de progresso */
+::-webkit-media-controls-timeline {
+  background-color: #ef4444 !important;
+}
+
+::-webkit-media-controls-progress-bar {
+  background-color: #ef4444 !important;
+}
+
+/* Estilização dos controles de vídeo */
+.video-custom-controls {
+  /* Cor da barra de progresso */
+  &::-webkit-media-controls-timeline,
+  &::-webkit-media-controls-progress-bar {
+    background-color: #8b5cf6 !important; /* Cor roxa do Tailwind (purple-600) */
+  }
+
+  &::-webkit-media-controls-panel {
+    background: rgba(0, 0, 0, 0.7);
+  }
+
+  &::-webkit-media-controls-play-button {
+    filter: hue-rotate(240deg); /* Ajusta a cor para roxo */
+  }
+}
+
+/* Firefox */
+.video-custom-controls::-moz-range-progress {
+  background-color: #8b5cf6;
+}
+
+/* Edge e IE */
+.video-custom-controls::-ms-fill-lower {
+  background-color: #8b5cf6;
+}
