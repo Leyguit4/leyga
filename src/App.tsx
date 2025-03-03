@@ -86,8 +86,22 @@ function App() {
     }
   };
 
+  useEffect(() => {
+    // Adiciona o favicon dinamicamente
+    const link = document.querySelector("link[rel~='icon']") as HTMLLinkElement;
+    if (!link) {
+      const newLink = document.createElement('link');
+      newLink.rel = 'icon';
+      newLink.type = 'image/x-icon';
+      newLink.href = '/favicon.ico';
+      document.head.appendChild(newLink);
+    }
+  }, []);
+
   return (
     <div className={`min-h-screen ${darkMode ? 'bg-gray-900' : 'bg-white'} transition-colors duration-300`}>
+      {/* Favicon is added via useEffect */}
+      
       {/* Header */}
       <header className={`fixed w-full z-50 ${
         darkMode 
