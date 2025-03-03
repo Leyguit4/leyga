@@ -36,111 +36,109 @@ interface Translations {
 const translations: Translations = {
   pt: {
     nav: {
-      about: "Sobre",
-      portfolio: "Portfólio",
-      contact: "Contato"
+      about: 'Sobre',
+      portfolio: 'Portfólio',
+      contact: 'Contato'
     },
     hero: {
-      greeting: "Olá, eu sou",
-      typingText: "Desenvolvedor Full Stack & Criador de Bots",
-      description: "Especializado em desenvolvimento de bots e sistemas personalizados para Discord, com foco em interação e engajamento de comunidades.",
-      cta: "Ver Projetos"
+      greeting: 'Olá, eu sou',
+      typingText: 'Desenvolvedor de Bots para Discord',
+      description: 'Especializado em criar experiências únicas e interativas para comunidades no Discord.',
+      cta: 'Ver Projetos'
     },
     portfolio: {
-      title: "Meus Projetos",
+      title: 'Projetos em Destaque',
       projects: [
         {
-          title: "🎫 Sistema de Tickets",
-          description: "Sistema completo de tickets para suporte, com categorias, prioridades e histórico de atendimentos."
+          title: '🎫 Tickets',
+          description: 'Sistema avançado de suporte com categorias, prioridades e métricas de atendimento. Ideal para grandes comunidades.'
         },
         {
-          title: "📝 Sistema de Forms",
-          description: "Formulários personalizáveis para coleta de dados, com validação e exportação de resultados."
+          title: '📝 Forms',
+          description: 'Formulários personalizáveis com diversos tipos de campos, validações e exportação de respostas em múltiplos formatos.'
         },
         {
-          title: "🔓 Sistema de Unban",
-          description: "Gerenciamento de banimentos com solicitações de desbanimento e análise de casos."
+          title: '🔓 Unban',
+          description: 'Sistema inteligente de solicitações de desbanimento com análise automática de histórico e tempo de punição.'
         },
         {
-          title: "🏆 Sistema de Ranking",
-          description: "Ranking de membros baseado em atividade, mensagens e participação em eventos."
+          title: '🏆 Ranking',
+          description: 'Sistema completo de níveis e classificações com recompensas automáticas, estatísticas e competições sazonais.'
         },
         {
-          title: "👥 Sistema de Metadinhas",
-          description: "Crie perfis compartilhados com outros membros do servidor para mostrar amizades e relacionamentos."
+          title: '💕 Metadinhas',
+          description: 'Sistema único de pareamento de avatares para casais e amigos, com efeitos visuais e personalização avançada.'
         },
         {
-          title: "🕵️ Jogo O Espião",
-          description: "Jogo interativo onde um jogador é o espião e precisa se misturar sem ser descoberto."
+          title: '🕵️ O Espião',
+          description: 'Jogo social de dedução onde jogadores devem descobrir quem é o espião entre eles. Inclui mais de 100 cenários.'
         },
         {
-          title: "🪑 Jogo Dança das Cadeiras",
-          description: "Versão digital do clássico jogo de festa, adaptado para servidores do Discord."
+          title: '🪑 Dança das Cadeiras',
+          description: 'Versão digital do clássico jogo, com sistema de eliminação automática e integração com canais de voz.'
         }
       ]
     },
     contact: {
-      title: "Entre em Contato",
-      description: "Tem algum projeto em mente? Vamos conversar!"
+      title: 'Entre em Contato',
+      description: 'Vamos transformar sua ideia em realidade! Entre em contato para discutirmos seu projeto.'
     },
     footer: {
-      rights: "Todos os direitos reservados"
-    },
-    typingText: "Desenvolvedor Full Stack & Criador de Bots"
+      rights: 'Todos os direitos reservados'
+    }
   },
   en: {
     nav: {
-      about: "About",
-      portfolio: "Portfolio",
-      contact: "Contact"
+      about: 'About',
+      portfolio: 'Portfolio',
+      contact: 'Contact'
     },
     hero: {
       greeting: "Hi, I'm",
-      typingText: "Full Stack Developer & Bot Creator",
-      description: "Specialized in developing custom bots and systems for Discord, focusing on community interaction and engagement.",
-      cta: "View Projects"
+      typingText: 'Discord Bot Developer',
+      description: 'Specialized in creating unique and interactive experiences for Discord communities.',
+      cta: 'View Projects'
     },
     portfolio: {
-      title: "My Projects",
+      title: 'Featured Projects',
       projects: [
         {
-          title: "🎫 Ticket System",
-          description: "Complete ticket system for support, with categories, priorities, and service history."
+          title: '🎫 Tickets',
+          description: 'Advanced support system with categories, priorities, and service metrics. Perfect for large communities.'
         },
         {
-          title: "📝 Forms System",
-          description: "Customizable forms for data collection, with validation and results export."
+          title: '📝 Forms',
+          description: 'Customizable forms with various field types, validations, and response export in multiple formats.'
         },
         {
-          title: "🔓 Unban System",
-          description: "Ban management with unban requests and case analysis."
+          title: '🔓 Unban',
+          description: 'Smart unban request system with automatic history analysis and punishment time tracking.'
         },
         {
-          title: "🏆 Ranking System",
-          description: "Member ranking based on activity, messages, and event participation."
+          title: '🏆 Ranking',
+          description: 'Complete leveling and ranking system with automatic rewards, statistics, and seasonal competitions.'
         },
         {
-          title: "👥 Matching Profiles",
-          description: "Create shared profiles with other server members to showcase friendships and relationships."
+          title: '💕 Matching',
+          description: 'Unique avatar matching system for couples and friends, with visual effects and advanced customization.'
         },
         {
-          title: "🕵️ Spy Game",
-          description: "Interactive game where one player is the spy and needs to blend in without being discovered."
+          title: '🕵️ The Spy',
+          description: 'Social deduction game where players must discover who is the spy among them. Includes over 100 scenarios.'
         },
         {
-          title: "🪑 Musical Chairs",
-          description: "Digital version of the classic party game, adapted for Discord servers."
+          title: '🪑 Musical Chairs',
+          description: 'Digital version of the classic game, with automatic elimination system and voice channel integration.'
         }
       ]
     },
     contact: {
-      title: "Get in Touch",
-      description: "Have a project in mind? Let's talk!"
+      title: 'Get in Touch',
+      description: "Let's turn your idea into reality! Get in touch to discuss your project."
     },
     footer: {
-      rights: "All rights reserved"
-    },
-    typingText: "Full Stack Developer & Bot Creator"
+      rights: 'All rights reserved'
+    }
   }
 };
 
