@@ -181,14 +181,41 @@ function App() {
           </h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {t.portfolio.projects.map((project, index) => (
-              <VideoCard 
-                key={index}
-                title={project.title}
-                description={project.description}
-                videoId={`https://drive.google.com/file/d/${index + 1}/view`} // Exemplo - ajuste conforme necessário
-              />
-            ))}
+            <VideoCard 
+              title="Tickets"
+              description="Sistema completo de tickets para atendimento"
+              videoId="1XIsHPVP8EL16Lvy_tswZWC8vZviOMQcd"
+            />
+            <VideoCard 
+              title="Forms"
+              description="Sistema de formulários personalizados"
+              videoId="1A5CkeqkM-oTbRjdAOCT0vdAjTIhZQi44"
+            />
+            <VideoCard 
+              title="Unban"
+              description="Sistema de solicitação de desbanimento"
+              videoId="1A5CkeqkM-oTbRjdAOCT0vdAjTIhZQi44"
+            />
+            <VideoCard 
+              title="Ranking"
+              description="Sistema de ranking e níveis"
+              videoId="1qRRIKZJqi708UbOtjIQIPAj2JXBanxeu"
+            />
+            <VideoCard 
+              title="Metadinhas"
+              description="Sistema de pareamento de avatares"
+              videoId="1gc5CDP8SFH8Aw2ixM51I0gaMfTpqTd1m"
+            />
+            <VideoCard 
+              title="O Espião"
+              description="Jogo interativo para servidores"
+              videoId="1_UdS6xEjnFPtGwL87AMfVGVQNR--MLVq"
+            />
+            <VideoCard 
+              title="Dança das Cadeiras"
+              description="Jogo clássico adaptado para Discord"
+              videoId="10Z4-mCLEPQmC9XBPe4kD9Y9kx_t8w74r"
+            />
           </div>
         </div>
       </section>
